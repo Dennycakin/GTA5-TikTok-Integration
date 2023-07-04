@@ -115,6 +115,20 @@ public class GTAVWebhookScript : Script
                     }
                     break;
                 }
+                 case "trashed":
+                {
+                    trashed;
+                    if (Enum.TryParse<trashed(command.custom, out trashed))
+                    {
+                        trashed.Add(World.CreateVehicle(new Model(vehicleHash), Game.Player.Character.Position + Game.Player.Character.ForwardVector * 5));
+                        Logger.Log("trashed: " + command.custom);
+                    }
+                    else
+                    {
+                        Logger.Log("Cannot parse vehicle name: " + command.custom);
+                    }
+                    break;
+                }
             case "remove_spawned_vehicles":
                 {
                     try
